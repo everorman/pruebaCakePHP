@@ -21,8 +21,14 @@
   <fieldset>
     <legend><?= __('Edit User') ?></legend>
     <?php
-    echo $this->Form->control('username', [
+    echo $this->Form->control('name', [
       'class' => 'form-control'
+    ]);
+    echo $this->Form->control('lastname', [
+      'class' => 'form-control'
+    ]);
+    echo $this->Form->control('username',[
+      'class' =>  $this->Form->isFieldError('username') ? 'form-control is-invalid' : 'form-control'
     ]);
     echo $this->Form->control('password', [
       'class' => 'form-control'

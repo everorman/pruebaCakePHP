@@ -20,6 +20,18 @@
       </div>
     </div>
     <div class="form-group row">
+      <label class="col-sm-2 col-form-label"><?= __('Name') ?></label>
+      <div class="col-sm-10">
+        <input type="text" readonly class="form-control"  value="<?= h($user->name) ?>">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label"><?= __('Lastname') ?></label>
+      <div class="col-sm-10">
+        <input type="text" readonly class="form-control"  value="<?= h($user->lastname) ?>">
+      </div>
+    </div>
+    <div class="form-group row">
       <label class="col-sm-2 col-form-label"><?= __('Username') ?></label>
       <div class="col-sm-10">
         <input type="text" readonly class="form-control"  value="<?= h($user->username) ?>">

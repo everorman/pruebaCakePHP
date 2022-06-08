@@ -51,7 +51,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <?php if ($this->request->session()->read('Auth.User.username')) { ?>
-            <li class="nav-item"><a class="nav-link" href="users/logout">Logout (<?php echo $this->request->session()->read('Auth.User.username') ?>)</a></li>
+            <li class="nav-item"><a class="nav-link" href="users/logout">Logout (<?php echo $this->request->getSession()->read('Auth.User.name').' '.$this->request->getSession()->read('Auth.User.lastname') ?>)</a></li>
           <?php } ?>
         </ul>
       </div>

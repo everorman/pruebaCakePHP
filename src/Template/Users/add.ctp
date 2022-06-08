@@ -13,6 +13,8 @@
     $this->Flash->render('auth');
     $myTemplates = [
       'inputContainer' => '<div class="form-group">{{content}}</div>',
+      'inputContainerError' => '<div class="form-group is-invalid">{{content}}{{error}}</div>',
+      'error' => '<div class="invalid-feedback">{{content}}</div>',
     ];
     $this->Form->setTemplates($myTemplates);
   ?>
@@ -20,11 +22,17 @@
   <fieldset>
     <legend><?= __('Add User') ?></legend>
     <?php
+    echo $this->Form->control('name',[
+      'class' =>  $this->Form->isFieldError('name') ? 'form-control is-invalid' : 'form-control'
+    ]);
+    echo $this->Form->control('lastname',[
+      'class' =>  $this->Form->isFieldError('lastname') ? 'form-control is-invalid' : 'form-control'
+    ]);
     echo $this->Form->control('username',[
-      'class' => 'form-control'
+      'class' =>  $this->Form->isFieldError('username') ? 'form-control is-invalid' : 'form-control'
     ]);
     echo $this->Form->control('password',[
-      'class' => 'form-control'
+      'class' =>  $this->Form->isFieldError('password') ? 'form-control is-invalid' : 'form-control'
     ]);
     echo $this->Form->control('role', [
       'class' => 'form-control',
