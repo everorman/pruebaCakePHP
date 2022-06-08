@@ -112,7 +112,11 @@ class UsersController extends AppController
     // Allow users to register and logout.
     // You should not add the "login" action to allow list. Doing so would
     // cause problems with normal functioning of AuthComponent.
-    $this->Auth->allow(['add', 'logout']);
+    $user = $this->Auth->user();
+
+    if (isset($user['role']) && $user['role'] === 'visit') {
+        $this->Auth->allow(['index','view']);
+    }
   }
 
   public function login()

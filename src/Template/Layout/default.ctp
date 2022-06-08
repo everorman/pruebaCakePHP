@@ -49,7 +49,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?php
         if ($this->request->session()->read('Auth.User.username')) {
         ?>
-          <li><a target="_blank" href="users/logout">Logout (<?php echo $this->request->session()->read('Auth.User.username')?>)</a></li>
+          <li><a href="users/logout">Logout (<?php echo $this->request->session()->read('Auth.User.username')?>)</a></li>
         <?php
         }
         ?>
