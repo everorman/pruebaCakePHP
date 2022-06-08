@@ -17,8 +17,9 @@
 
 $cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
-<!DOCTYPE html>
-<html>
+
+<!doctype html>
+<html lang="en">
 
 <head>
   <?= $this->Html->charset() ?>
@@ -27,10 +28,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $cakeDescription ?>:
     <?= $this->fetch('title') ?>
   </title>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
   <?= $this->Html->meta('icon') ?>
 
-  <?= $this->Html->css('base.css') ?>
-  <?= $this->Html->css('style.css') ?>
+  <?= $this->Html->css('bootstrap.min.css') ?>
+  <?= $this->Html->script('bootstrap.min.js') ?>
 
   <?= $this->fetch('meta') ?>
   <?= $this->fetch('css') ?>
@@ -38,32 +41,27 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 </head>
 
 <body>
-  <nav class="top-bar expanded" data-topbar role="navigation">
-    <ul class="title-area large-3 medium-4 columns">
-      <li class="name">
-        <h1><a href=""><?= $this->fetch('title') ?></a></h1>
-      </li>
-    </ul>
-    <div class="top-bar-section">
-      <ul class="right">
-        <?php
-        if ($this->request->session()->read('Auth.User.username')) {
-        ?>
-          <li><a href="users/logout">Logout (<?php echo $this->request->session()->read('Auth.User.username')?>)</a></li>
-        <?php
-        }
-        ?>
-        <li><a target="_blank" href="https://book.cakephp.org/3/">Documentation</a></li>
-        <li><a target="_blank" href="https://api.cakephp.org/3.0/">API</a></li>
-      </ul>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+          <?php if ($this->request->session()->read('Auth.User.username')) { ?>
+            <li class="nav-item"><a class="nav-link" href="users/logout">Logout (<?php echo $this->request->session()->read('Auth.User.username') ?>)</a></li>
+          <?php } ?>
+        </ul>
+      </div>
     </div>
   </nav>
   <?= $this->Flash->render() ?>
-  <div class="container clearfix">
+  <div class="container">
     <?= $this->fetch('content') ?>
   </div>
-  <footer>
-  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 
 </html>
