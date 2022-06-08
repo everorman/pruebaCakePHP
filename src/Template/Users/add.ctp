@@ -17,7 +17,7 @@
         <?php
             echo $this->Form->control('username');
             echo $this->Form->control('password');
-            echo $this->Form->input('role', [
+            echo $this->Form->control('role', [
                 'options' => ['admin' => 'Administrator', 'visit' => 'Visitor']
             ])
         ?>
