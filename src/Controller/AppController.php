@@ -48,6 +48,7 @@ class AppController extends Controller
     ]);
     $this->loadComponent('Flash');
     $this->loadComponent('Auth', [
+      'authorize' => ['Controller'],
       'loginRedirect' => [
         'controller' => 'Users',
         'action' => 'index'
@@ -59,9 +60,28 @@ class AppController extends Controller
       ]
     ]);
   }
+
+  public function isAuthorized($user)
+  {
+    // Admin can access every action
+    if (isset($user['role']) && $user['role'] === 'admin') {
+      return true;
+    }
+
+    // Default deny
+    return false;
+  }
+
   public function beforeFilter(Event $event)
   {
     $this->Auth->allow(['index', 'view', 'display']);
+  }
+
+  public function beforeRender(Event $event)
+  {
+    $this->set([
+      'userData' => $this->Auth->user(),
+    ]);
   }
 
   /*
