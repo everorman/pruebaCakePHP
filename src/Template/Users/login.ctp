@@ -8,11 +8,11 @@
     ?>
 
     <?php echo $this->Form->create()?>
-    <?php echo $this->Form->input('username', array(
+    <?php echo $this->Form->control('username', array(
         'class' => 'form-control',
         'placeholder' => 'Username'
     )); ?>
-    <?php echo $this->Form->input('password', array(
+    <?php echo $this->Form->control('password', array(
         'class' => 'form-control',
         'placeholder' => 'Password'
     )); ?>
